@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Random Repository Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>GitHub Random Repository</h1>
+        <p>Select a language, then fetch a random repo using the GitHub Search API.</p>
+      </header>
+
+      <section class="controls" aria-label="Controls">
+        <label for="languageSelect">Programming language</label>
+        <select id="languageSelect"></select>
+
+        <button id="fetchBtn" type="button">Find a random repo</button>
+        <button id="refreshBtn" type="button" class="hidden">Refresh</button>
+      </section>
+
+      <section id="status" class="status" role="status" aria-live="polite"></section>
+
+      <section id="card" class="card hidden" aria-label="Repository details">
+        <div class="card-top">
+          <h2 id="repoName"></h2>
+          <a id="repoLink" target="_blank" rel="noreferrer">Open on GitHub</a>
+        </div>
+
+        <p id="repoDesc" class="muted"></p>
+
+        <div class="stats">
+          <div class="stat"><span class="label">⭐ Stars</span><span id="stars"></span></div>
+          <div class="stat"><span class="label">🍴 Forks</span><span id="forks"></span></div>
+          <div class="stat"><span class="label">🐞 Open issues</span><span id="issues"></span></div>
+        </div>
+
+        <div class="meta">
+          <span class="chip" id="languageChip"></span>
+          <span class="chip" id="ownerChip"></span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>
+          Uses the GitHub Repository Search API. You may hit unauthenticated rate limits; see README for optional token.
+        </small>
+      </footer>
+    </div>
+
+    <script src="languages.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
